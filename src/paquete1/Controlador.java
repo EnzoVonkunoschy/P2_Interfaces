@@ -22,7 +22,7 @@ public class Controlador {
 		
 		System.out.println(paquete);
 		
-		GestorArchivos.guardar("datoAfiliado.txt", paquete);*/
+		GestorArchivos.guardar("datoAfiliado.txt", paquete);
 		
 		String paquete = GestorArchivos.cargar("datoAfiliado.txt");
 		
@@ -34,7 +34,37 @@ public class Controlador {
 		
 		for(int j=0;j<datosAfiliado.size();j++) {
 			System.out.println("--> " + datosAfiliado.get(j));
-		}
+		}*/
+		
+		//Instancio un objeto de la clase VistaLibreta
+		//que implementa la interface iVista
+		
+		iVista miVistaLib = new VistaLibreta();
+		
+		
+		//Instancio un menú
+		ArrayList<String> miMenu = new ArrayList<>();
+		miMenu.add("Listar Libreta");
+		miMenu.add("Agregar Contacto");
+		miMenu.add("Eliminar Contacto");
+		
+		//Instancio una lista de contactos
+		ArrayList<String> miLibreta = new ArrayList<>();
+		miLibreta.add("Enzo");
+		miLibreta.add("Melina");
+		miLibreta.add("Analía");
+		
+		int tmp_item = miVistaLib.mostrarMenu(miMenu);		
+		System.out.println("-controlador-> "+tmp_item);
+		
+		miVistaLib.mostrarLibreta(miLibreta);
+		
+		int tmp_contacto = miVistaLib.eliminarContacto(miLibreta);
+		System.out.println("-controlador-> "+tmp_contacto);
+		
+		String nuevoContacto = miVistaLib.agregarContacto();
+		System.out.println("-controlador-> (nuevo contacto) "+nuevoContacto);
+		
+		
 	}
-
 }
